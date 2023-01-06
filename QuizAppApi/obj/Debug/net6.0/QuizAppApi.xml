@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>QuizAppApi</name>
+    </assembly>
+    <members>
+        <member name="T:QuizAppApi.Controllers.AuthController">
+            <summary>
+            AuthController
+            </summary>
+        </member>
+        <member name="M:QuizAppApi.Controllers.AuthController.Register(QuizAppApi.DTOs.UserRegisterDTO)">
+            <summary>
+            Method For Register
+            </summary>
+        </member>
+        <member name="M:QuizAppApi.Controllers.AuthController.Login(QuizAppApi.DTOs.UserLoginDTO)">
+            <summary>
+            Method To Login into System.Provides JWT token
+            </summary>
+        </member>
+        <member name="T:QuizAppApi.Controllers.QuestionController">
+            <summary>
+            Question Controller
+            </summary>
+        </member>
+        <member name="M:QuizAppApi.Controllers.QuestionController.GetAllQuestion">
+            <summary>
+            Returns all Questions
+            </summary>
+        </member>
+        <member name="M:QuizAppApi.Controllers.QuestionController.GetQuestion(System.Int32)">
+            <summary>
+            Returns Question by id
+            </summary>
+        </member>
+        <member name="M:QuizAppApi.Controllers.QuestionController.PutQuestion(System.Int32,QuizAppApi.Models.Questions)">
+            <summary>
+            Edit Questions
+            </summary>
+        </member>
+        <member name="M:QuizAppApi.Controllers.QuestionController.CreateQuestions(QuizAppApi.Models.Questions)">
+            <summary>
+            add Question
+            </summary>
+        </member>
+        <member name="M:QuizAppApi.Controllers.QuestionController.DeleteQuestion(System.Int32)">
+            <summary>
+            Delete Question
+            </summary>
+        </member>
+    </members>
+</doc>
