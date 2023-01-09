@@ -49,5 +49,15 @@
             Delete Question
             </summary>
         </member>
+        <member name="M:QuizAppApi.Controllers.QuestionController.Get5Question">
+            <summary>
+            Method to get 5 random question
+            </summary>
+        </member>
+        <member name="M:QuizAppApi.Controllers.QuestionController.RetrieveAnswers(System.Int32[])">
+            <summary>
+            Returns 5 question with answer when id is given
+            </summary>
+        </member>
     </members>
 </doc>

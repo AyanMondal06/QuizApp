@@ -23,30 +23,10 @@ namespace QuizAppApi.Controllers
         }
 
 
-
-
-        /*        [HttpGet]
-                public async Task<ActionResult<IEnumerable<Questions>>> Get5Question()
-                {
-                    var random5Qns = await (_dbContext.QuestionsTable
-                         .Select(x => new
-                         {
-                             QuestionId = x.QuestionId,
-                             QuestionInWords = x.QuestionInWords,
-                             ImageName = x.ImageName,
-                             Options = new string[] { x.Option1, x.Option2, x.Option3, x.Option4 },
-                         })
-                         .OrderBy(y => Guid.NewGuid())
-                         .Take(5)
-                         ).ToListAsync();
-
-                    return Ok(random5Qns);
-                }*/
-
         /// <summary>
         /// Returns all Questions
         /// </summary>
-        [Authorize(Roles = "Admin,Participant")]
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Questions>>> GetAllQuestion()
         {
@@ -107,23 +87,6 @@ namespace QuizAppApi.Controllers
             return Ok("saved changes");
         }
 
-
-        /*        [HttpPost]
-                [Route("GetAnswers")]
-                public async Task<ActionResult<Questions>> RetrieveAnswers(int[] qnIds)
-                {
-                    var answers = await (_dbContext.QuestionsTable
-                        .Where(x => qnIds.Contains(x.QuestionId))
-                        .Select(y => new
-                        {
-                            QuestionId = y.QuestionId,
-                            QuestionInWords = y.QuestionInWords,
-                            ImageName = y.ImageName,
-                            Options = new string[] { y.Option1, y.Option2, y.Option3, y.Option4 },
-                            Answer = y.Answer
-                        })).ToListAsync();
-                    return Ok(answers);
-                }*/
         /// <summary>
         /// add Question
         /// </summary>
@@ -156,6 +119,47 @@ namespace QuizAppApi.Controllers
             await _dbContext.SaveChangesAsync();
 
             return Ok("Deleted");
+        }
+
+        /// <summary>
+        /// Method to get 5 random question
+        /// </summary>
+        [HttpGet("Fetch5Que")]
+        public async Task<ActionResult<IEnumerable<Questions>>> Get5Question()
+        {
+            var random5Qns = await (_dbContext.QuestionsTable
+                 .Select(x => new
+                 {
+                     QuestionId = x.QuestionId,
+                     QuestionInWords = x.QuestionInWords,
+                     ImageName = x.ImageName,
+                     Options = new string[] { x.Option1, x.Option2, x.Option3, x.Option4 },
+                 })
+                 .OrderBy(y => Guid.NewGuid())
+                 .Take(5)
+                 ).ToListAsync();
+
+            return Ok(random5Qns);
+        }
+
+        /// <summary>
+        /// Returns 5 question with answer when id is given
+        /// </summary>
+        [Authorize(Roles = "Admin")]
+        [HttpPost("get answers")]
+        public async Task<ActionResult<Questions>> RetrieveAnswers(int[] qnIds)
+        {
+            var answers = await (_dbContext.QuestionsTable
+                .Where(x => qnIds.Contains(x.QuestionId))
+                .Select(y => new
+                {
+                    QuestionId = y.QuestionId,
+                    QuestionInWords = y.QuestionInWords,
+                    ImageName = y.ImageName,
+                    Options = new string[] { y.Option1, y.Option2, y.Option3, y.Option4 },
+                    Answer = y.Answer
+                })).ToListAsync();
+            return Ok(answers);
         }
 
         private bool QuestionExists(int id)

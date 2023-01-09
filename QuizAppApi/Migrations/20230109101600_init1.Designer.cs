@@ -12,8 +12,8 @@ using QuizAppApi.Infrastructure.DBContext;
 namespace QuizAppApi.Migrations
 {
     [DbContext(typeof(DbInfo))]
-    [Migration("20230105122240_init")]
-    partial class init
+    [Migration("20230109101600_init1")]
+    partial class init1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -80,9 +80,9 @@ namespace QuizAppApi.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("PasswordHash")
+                    b.Property<byte[]>("PasswordHash")
                         .IsRequired()
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("varbinary(max)");
 
                     b.Property<byte[]>("PasswordSalt")
                         .IsRequired()

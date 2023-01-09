@@ -6,6 +6,7 @@ using System.Security.Claims;
 using QuizAppApi.Models;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.EntityFrameworkCore;
+using QuizAppApi.Infrastructure.Error;
 
 namespace QuizAppApi.Services.Authentication
 {
@@ -30,15 +31,15 @@ namespace QuizAppApi.Services.Authentication
             if (user == null)
             {
                 response.Success = false;
-                response.Message = "Company not found!";
-                //new Error(response.Message + " Company = " + CompanyName + " not present in Database");
+                response.Message = "User not found!";
+                new Error(response.Message + "User Email = " + email + " not present in Database");
             }
             //Password auth 
             else if (!VerifyPasswordHash(Password, user.PasswordHash, user.PasswordSalt))
             {
                 response.Success = false;
                 response.Message = "Wrong Password";
-                //new Error(response.Message + " Company = " + CompanyName + " present in Database. But Password did not match");
+                new Error(response.Message + " User Email = " + email + " present in Database. But Password did not match");
             }
             else
             {
@@ -102,6 +103,7 @@ namespace QuizAppApi.Services.Authentication
             {
                 new Claim(ClaimTypes.NameIdentifier,user.UserId.ToString()),
                 new Claim(ClaimTypes.Name,user.Name),
+                new Claim(ClaimTypes.Email,user.Email),
                 new Claim(ClaimTypes.Role,user.Role.ToString())
             };
             SymmetricSecurityKey Key = new SymmetricSecurityKey(System.Text.Encoding.UTF8

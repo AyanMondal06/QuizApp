@@ -14,7 +14,6 @@ namespace QuizAppApi.Models
         [EmailAddress]
         public string Email { get; set; }
 
-        [Column(TypeName = "nvarchar(50)")]
 
         public byte[] PasswordHash { get; set; } 
         public byte[] PasswordSalt { get; set; }
