@@ -57,6 +57,7 @@ namespace QuizAppApi.Services.Authentication
             {
                 response.Success = false;
                 response.Message = "User Already Exists";
+                new Error(response.Message + " User already Present in databse");
                 return response;
             }
             CreatePasswordHash(Password, out byte[] PasswordHash, out byte[] PasswordSalt);
