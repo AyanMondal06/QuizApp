@@ -5,12 +5,14 @@ using Microsoft.EntityFrameworkCore;
 using QuizAppApi.Infrastructure.DBContext;
 using QuizAppApi.Infrastructure.Error;
 using QuizAppApi.Models;
+using System.Reflection.Metadata.Ecma335;
 
 namespace QuizAppApi.Controllers
 {
     /// <summary>
     /// Question Controller
     /// </summary>
+    [AllowAnonymous]
     [Route("api/[controller]")]
     [ApiController]
     public class QuestionController : ControllerBase
@@ -146,7 +148,7 @@ namespace QuizAppApi.Controllers
         /// Returns 5 question with answer when id is given
         /// </summary>
         [Authorize(Roles = "Admin")]
-        [HttpPost("get answers")]
+        [HttpPost("getAnswers")]
         public async Task<ActionResult<Questions>> RetrieveAnswers(int[] qnIds)
         {
             var answers = await (_dbContext.QuestionsTable
@@ -157,7 +159,7 @@ namespace QuizAppApi.Controllers
                     QuestionInWords = y.QuestionInWords,
                     ImageName = y.ImageName,
                     Options = new string[] { y.Option1, y.Option2, y.Option3, y.Option4 },
-                    Answer = y.Answer
+                    CorrectAns = y.Answer
                 })).ToListAsync();
             return Ok(answers);
         }

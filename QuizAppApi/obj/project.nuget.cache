@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "eHFxl8aXcbJkM1VUO3deuo6FpAa6SHOcDDKNQzZKie9FpGXPBh5Bg8divQOAgJ0D69q/nTvDJ4DyvAGjEG0IaQ==",
+  "dgSpecHash": "oWhs/oGBXsi5AmZBsqav+dEyH0m+aI0D0dj1uYbwZ9dFU3UKGWJL3Pz/RIkAqlZLm6VrhghdqUSKzyTRjXzBfw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Ryiu\\source\\repos\\QuizAppApi\\QuizAppApi\\QuizAppApi.csproj",
+  "projectFilePath": "C:\\Users\\Ryiu\\source\\repos\\QuizApp\\QuizAppApi\\QuizAppApi\\QuizAppApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ryiu\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
     "C:\\Users\\Ryiu\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",

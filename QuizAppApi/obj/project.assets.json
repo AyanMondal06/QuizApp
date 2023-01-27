@@ -2499,11 +2499,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Ryiu\\source\\repos\\QuizAppApi\\QuizAppApi\\QuizAppApi.csproj",
+      "projectUniqueName": "C:\\Users\\Ryiu\\source\\repos\\QuizApp\\QuizAppApi\\QuizAppApi\\QuizAppApi.csproj",
       "projectName": "QuizAppApi",
-      "projectPath": "C:\\Users\\Ryiu\\source\\repos\\QuizAppApi\\QuizAppApi\\QuizAppApi.csproj",
+      "projectPath": "C:\\Users\\Ryiu\\source\\repos\\QuizApp\\QuizAppApi\\QuizAppApi\\QuizAppApi.csproj",
       "packagesPath": "C:\\Users\\Ryiu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Ryiu\\source\\repos\\QuizAppApi\\QuizAppApi\\obj\\",
+      "outputPath": "C:\\Users\\Ryiu\\source\\repos\\QuizApp\\QuizAppApi\\QuizAppApi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Ryiu\\AppData\\Roaming\\NuGet\\NuGet.Config",
